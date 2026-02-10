@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>980</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>980</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>980</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
+  <property name="windowTitle">
+   <string>SpectralX</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/images/icons/account.png</normaloff>:/images/icons/account.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">* {
+	font-family: Consolas;
+	font-weight: bold;
+	color: #dcdcdc;
+	font-size: 15px;
+}
+
+QMainWindow, QWidget {
+	background-color: #111111;
+}
+
+QPushButton {
+    background-color: #16e0ff;
+    color: #111111;
+	border: none;
+    outline: 0;
+}
+
+QPushButton:hover {
+    background-color: #00b3b3;
+}
+
+QPushButton:pressed {
+    background-color: #008080;
+}
+
+QSlider::groove:horizontal {
+    border: none;
+    height: 4px;
+    background-color: #dcdcdc;
+    border-radius: 2px;
+}
+
+QSlider::handle:horizontal {
+    background-color: #16e0ff;
+    border: none;
+    width: 12px;
+    height: 12px;
+    margin: -4px 0;
+    border-radius: 2px;
+}
+
+QSlider::sub-page:horizontal {
+    background-color: #16e0ff;
+    border: none;
+    border-radius: 3px;
+}
+
+QCheckBox::indicator {
+    width: 12px;
+    height: 12px;
+    background-color: #16E0FF;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #16E0FF;
+    border: 1px solid #16E0FF;
+}
+
+QCheckBox::indicator:unchecked {
+    background-color: #dcdcdc;
+    border: 1px solid #16E0FF;
+}
+
+QTextEdit, QLineEdit {
+	background-color: #dcdcdc;
+	font-size: 18px;
+	border: none;
+	color: #111111;
+}
+
+QLineEdit {
+	font-size: 15px;
+}
+
+QScrollBar:vertical {
+    border: none;
+    background: #dcdcdc;
+    width: 15px;
+    margin: 15px 0 15px 0;
+}
+    
+QScrollBar::handle:vertical {
+    background: #16e0ff;
+    min-height: 20px;
+}
+    
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    background: #dcdcdc;
+}
+    
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+	background: #dcdcdc;
+}
+
+QLineEdit:hover {
+    border: 1px solid #16E0FF;
+}
+
+QLineEdit:focus {
+    border: 1px solid #16E0FF;
+    outline: none;
+}
+
+QProgressBar {
+    border: 1px solid #16E0FF;
+    border-radius: 2px;
+    background-color: #dcdcdc;
+	color: transparent;
+}
+
+QProgressBar::chunk {
+    background-color: #16E0FF;
+    border-radius: 2px;
+}
+
+QComboBox {
+    border: 1px solid #16E0FF;
+    border-top-right-radius: 2px;
+	border-top-left-radius: 2px;
+    padding: 2px;
+    background-color: #dcdcdc;
+    color: #111111;
+}
+
+QComboBox:hover {
+    border: 1px solid #16E0FF;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: right;
+    width: 20px;
+    border-left: 1px solid #16E0FF;
+    border-top-right-radius: 2px;
+    background: #16E0FF;
+}
+
+QComboBox::down-arrow {
+    image: url(:/images/icons/plus_16.png);
+}
+
+QComboBox QAbstractItemView {
+    border: 1px solid #16E0FF;
+    background-color: #dcdcdc;
+    color: #111111;
+	outline: 0;
+}
+
+QComboBox QListView::item:selected {
+    background-color: #16E0FF;
+    color: #111111;
+}
+
+QTabWidget::pane {
+    border: none;
+}
+
+QTabBar::tab {
+    background-color: #DCDCDC;
+    color: #111111;
+    padding: 2px 4px;
+    border-bottom: 2px solid #16E0FF;
+}
+
+QTabBar::tab:selected {
+    background-color: #16E0FF;
+}
+
+QTabBar::tab:!selected {
+    margin-top: 2px;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="sidebar" native="true">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>0</y>
+      <width>120</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>120</width>
+      <height>600</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>120</width>
+      <height>600</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#sidebar {
+	background-color: #0a0a0a;
+}
+
+#sidebar QLabel {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-origin: content;
+	background-color: #0a0a0a;
+}
+
+#sidebar QLabel:hover {
+	border-radius: 42px;
+	background-color: #1a1a1a;
+}
+</string>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="0">
+      <widget class="QLabel" name="start_label">
+       <property name="minimumSize">
+        <size>
+         <width>84</width>
+         <height>84</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>84</width>
+         <height>84</height>
+        </size>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-image: url(:/images/icons/star_64.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="exit_label">
+       <property name="minimumSize">
+        <size>
+         <width>84</width>
+         <height>84</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>84</width>
+         <height>84</height>
+        </size>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-image: url(:/images/icons/block_64.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="settings_label">
+       <property name="minimumSize">
+        <size>
+         <width>84</width>
+         <height>84</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>84</width>
+         <height>84</height>
+        </size>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-image: url(:/images/icons/setting_64.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="logs_label">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>84</width>
+         <height>84</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>84</width>
+         <height>84</height>
+        </size>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-image: url(:/images/icons/file_64.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="window" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>840</width>
+      <height>580</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>840</width>
+      <height>580</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>840</width>
+      <height>580</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#window QLabel {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-origin: content;
+	background-color: #0a0a0a;
+}
+
+#window #all_accs_label, #inv_accs_label, #val_accs_label {
+	padding-left: 4px;
+}
+
+#window #all_accs_textEdit, #inv_accs_textEdit, #val_accs_textEdit, #devices_textEdit {
+	font-size: 15px;
+}</string>
+    </property>
+    <widget class="QTextEdit" name="all_accs_textEdit">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>180</y>
+       <width>420</width>
+       <height>400</height>
+      </rect>
+     </property>
+     <property name="cursor" stdset="0">
+      <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="val_accs_textEdit">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>391</y>
+       <width>420</width>
+       <height>189</height>
+      </rect>
+     </property>
+     <property name="cursor" stdset="0">
+      <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="inv_accs_textEdit">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>180</y>
+       <width>420</width>
+       <height>189</height>
+      </rect>
+     </property>
+     <property name="cursor" stdset="0">
+      <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="inv_accs_label">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>158</y>
+       <width>420</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-top-left-radius: 2px;
+</string>
+     </property>
+     <property name="text">
+      <string>INVALID ACCOUNTS</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="all_accs_label">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>158</y>
+       <width>420</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-top-right-radius: 2px;
+</string>
+     </property>
+     <property name="text">
+      <string>ALL ACCOUNTS</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="val_accs_label">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>369</y>
+       <width>420</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>VALID ACCOUNTS</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="copy_label1">
+     <property name="geometry">
+      <rect>
+       <x>375</x>
+       <y>161</y>
+       <width>16</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/images/icons/copy_16.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="cut_label1">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>161</y>
+       <width>16</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/images/icons/cut_16.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="copy_label2">
+     <property name="geometry">
+      <rect>
+       <x>795</x>
+       <y>161</y>
+       <width>16</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/images/icons/copy_16.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="cut_label2">
+     <property name="geometry">
+      <rect>
+       <x>820</x>
+       <y>161</y>
+       <width>16</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/images/icons/cut_16.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="cut_label3">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>372</y>
+       <width>16</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/images/icons/cut_16.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="copy_label3">
+     <property name="geometry">
+      <rect>
+       <x>375</x>
+       <y>372</y>
+       <width>16</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/images/icons/copy_16.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="devider">
+     <property name="geometry">
+      <rect>
+       <x>418</x>
+       <y>158</y>
+       <width>4</width>
+       <height>422</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QWidget" name="devices_window" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>210</width>
+       <height>125</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#devices_window QLabel {
+	background-color: #16e0ff;
+}</string>
+     </property>
+     <widget class="QTextEdit" name="devices_textEdit">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>22</y>
+        <width>210</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <property name="cursor" stdset="0">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>210</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="placeholderText">
+       <string>DEVICE</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="add_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>101</y>
+        <width>70</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-right: 2px solid #0a0a0a;</string>
+      </property>
+      <property name="text">
+       <string>ADD</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="del_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>101</y>
+        <width>70</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-right: 2px solid #0a0a0a;</string>
+      </property>
+      <property name="text">
+       <string>DEL</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="search_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>101</y>
+        <width>70</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>ALL</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="left_border">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>22</y>
+        <width>1</width>
+        <height>79</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="left_border_2">
+      <property name="geometry">
+       <rect>
+        <x>209</x>
+        <y>22</y>
+        <width>1</width>
+        <height>79</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="start_autoreg">
+     <property name="geometry">
+      <rect>
+       <x>215</x>
+       <y>0</y>
+       <width>625</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>START AUTOREG</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="start_checker">
+     <property name="geometry">
+      <rect>
+       <x>215</x>
+       <y>65</y>
+       <width>625</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>START CHECKER</string>
+     </property>
+    </widget>
+    <widget class="QProgressBar" name="process_progressBar">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>130</y>
+       <width>840</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+   </widget>
+   <zorder>window</zorder>
+   <zorder>sidebar</zorder>
+  </widget>
+ </widget>
+ <layoutdefault spacing="0" margin="0"/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>2</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>2</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>false</bool>
+  </property>
+ </designerdata>
+</ui>

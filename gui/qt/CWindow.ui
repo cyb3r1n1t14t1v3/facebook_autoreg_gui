@@ -1,0 +1,3653 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>980</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>980</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>980</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
+  <property name="windowTitle">
+   <string>SpectralX</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/images/icons/account.png</normaloff>:/images/icons/account.png</iconset>
+  </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">* {
+	font-family: Consolas;
+	font-weight: bold;
+	color: #dcdcdc;
+	font-size: 15px;
+}
+
+QMainWindow, QWidget {
+	background-color: #111111;
+}
+
+QPushButton {
+    background-color: #16e0ff;
+    color: #111111;
+	border: none;
+    outline: 0;
+}
+
+QPushButton:hover {
+    background-color: #00b3b3;
+}
+
+QPushButton:pressed {
+    background-color: #008080;
+}
+
+QSlider::groove:horizontal {
+    border: none;
+    height: 4px;
+    background-color: #dcdcdc;
+    border-radius: 2px;
+}
+
+QSlider::handle:horizontal {
+    background-color: #16e0ff;
+    border: none;
+    width: 12px;
+    height: 12px;
+    margin: -4px 0;
+    border-radius: 2px;
+}
+
+QSlider::sub-page:horizontal {
+    background-color: #16e0ff;
+    border: none;
+    border-radius: 3px;
+}
+
+QCheckBox::indicator {
+    width: 12px;
+    height: 12px;
+    background-color: #16E0FF;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #16E0FF;
+    border: 1px solid #16E0FF;
+}
+
+QCheckBox::indicator:unchecked {
+    background-color: #dcdcdc;
+    border: 1px solid #16E0FF;
+}
+
+QTextEdit, QLineEdit {
+	background-color: #dcdcdc;
+	font-size: 18px;
+	border: none;
+	color: #111111;
+}
+
+QLineEdit {
+	font-size: 15px;
+}
+
+QScrollBar:vertical {
+    border: none;
+    background: #dcdcdc;
+    width: 15px;
+    margin: 15px 0 15px 0;
+}
+    
+QScrollBar::handle:vertical {
+    background: #16e0ff;
+    min-height: 20px;
+}
+    
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    background: #dcdcdc;
+}
+    
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+	background: #dcdcdc;
+}
+
+QLineEdit:hover {
+    border: 1px solid #16E0FF;
+}
+
+QLineEdit:focus {
+    border: 1px solid #16E0FF;
+    outline: none;
+}
+
+QProgressBar {
+    border: 1px solid #16E0FF;
+    border-radius: 2px;
+    background-color: #dcdcdc;
+	color: transparent;
+}
+
+QProgressBar::chunk {
+    background-color: #16E0FF;
+    border-radius: 2px;
+}
+
+QComboBox {
+    border: 1px solid #16E0FF;
+    border-top-right-radius: 2px;
+	border-top-left-radius: 2px;
+    padding: 2px;
+    background-color: #dcdcdc;
+    color: #111111;
+}
+
+QComboBox:hover {
+    border: 1px solid #16E0FF;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: right;
+    width: 20px;
+    border-left: 1px solid #16E0FF;
+    border-top-right-radius: 2px;
+    background: #16E0FF;
+}
+
+QComboBox::down-arrow {
+    image: url(:/images/icons/plus_16.png);
+}
+
+QComboBox QAbstractItemView {
+    border: 1px solid #16E0FF;
+    background-color: #dcdcdc;
+    color: #111111;
+	outline: 0;
+}
+
+QComboBox QListView::item:selected {
+    background-color: #16E0FF;
+    color: #111111;
+}
+
+QTabWidget::pane {
+    border: none;
+}
+
+QTabBar::tab {
+    background-color: #DCDCDC;
+    color: #111111;
+    padding: 2px 4px;
+	border-bottom: 2px solid #16E0FF;
+}
+
+QTabBar::tab:selected {
+    background-color: #16E0FF;
+}
+
+QTabBar::tab:!selected {
+    margin-top: 2px;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="sidebar" native="true">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>0</y>
+      <width>120</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>120</width>
+      <height>600</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>120</width>
+      <height>600</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#sidebar {
+	background-color: #0a0a0a;
+}
+
+#sidebar QLabel {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-origin: content;
+	background-color: #0a0a0a;
+}
+
+#sidebar QLabel:hover {
+	border-radius: 42px;
+	background-color: #1a1a1a;
+}</string>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="0">
+      <widget class="QLabel" name="start_label">
+       <property name="minimumSize">
+        <size>
+         <width>84</width>
+         <height>84</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>84</width>
+         <height>84</height>
+        </size>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-image: url(:/images/icons/star_64.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="exit_label">
+       <property name="minimumSize">
+        <size>
+         <width>84</width>
+         <height>84</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>84</width>
+         <height>84</height>
+        </size>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-image: url(:/images/icons/block_64.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="settings_label">
+       <property name="minimumSize">
+        <size>
+         <width>84</width>
+         <height>84</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>84</width>
+         <height>84</height>
+        </size>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-image: url(:/images/icons/setting_64.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="logs_label">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>84</width>
+         <height>84</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>84</width>
+         <height>84</height>
+        </size>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-image: url(:/images/icons/file_64.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="window" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>840</width>
+      <height>580</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>840</width>
+      <height>580</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <widget class="QTabWidget" name="config">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>420</width>
+       <height>580</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>420</width>
+       <height>580</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="tabPosition">
+      <enum>QTabWidget::North</enum>
+     </property>
+     <property name="currentIndex">
+      <number>2</number>
+     </property>
+     <widget class="QWidget" name="delays">
+      <attribute name="title">
+       <string>DELAYS</string>
+      </attribute>
+      <widget class="QWidget" name="delays_installFacebook" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>55</y>
+         <width>420</width>
+         <height>42</height>
+        </rect>
+       </property>
+       <widget class="QLabel" name="delays_installFacebook_title">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>1</y>
+          <width>200</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>AFTER INSTALLING FACEBOOK</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="delays_installFacebook_horizontalSlider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>26</y>
+          <width>420</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="delays_installFacebook_secs">
+        <property name="geometry">
+         <rect>
+          <x>346</x>
+          <y>0</y>
+          <width>74</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;</string>
+        </property>
+        <property name="text">
+         <string>0.0 SECS</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="delays_installFacebook_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QPushButton" name="delays_refresh_config">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>10</y>
+         <width>210</width>
+         <height>35</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>REFRESH CONFIG</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="delays_save_config">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>210</width>
+         <height>35</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-right: 2px solid #0a0a0a;</string>
+       </property>
+       <property name="text">
+        <string>SAVE CONFIG</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="delays_openFacebook" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>107</y>
+         <width>420</width>
+         <height>42</height>
+        </rect>
+       </property>
+       <widget class="QLabel" name="delays_openFacebook_title">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>1</y>
+          <width>176</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>AFTER OPENING FACEBOOK</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="delays_openFacebook_horizontalSlider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>26</y>
+          <width>420</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="delays_openFacebook_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="delays_openFacebook_secs">
+        <property name="geometry">
+         <rect>
+          <x>346</x>
+          <y>0</y>
+          <width>74</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;</string>
+        </property>
+        <property name="text">
+         <string>0.0 SECS</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="delays_sendClick" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>159</y>
+         <width>420</width>
+         <height>42</height>
+        </rect>
+       </property>
+       <widget class="QLabel" name="delays_sendClick_title">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>1</y>
+          <width>112</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>AFTER CLICKING</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="delays_sendClick_horizontalSlider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>26</y>
+          <width>420</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="delays_sendClick_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="delays_sendClick_secs">
+        <property name="geometry">
+         <rect>
+          <x>346</x>
+          <y>0</y>
+          <width>74</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;</string>
+        </property>
+        <property name="text">
+         <string>0.0 SECS</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="delays_sendKeys" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>211</y>
+         <width>420</width>
+         <height>42</height>
+        </rect>
+       </property>
+       <widget class="QLabel" name="delays_sendKeys_title">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>1</y>
+          <width>176</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>AFTER PRESSING THE KEY</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="delays_sendKeys_horizontalSlider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>26</y>
+          <width>420</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="delays_sendKeys_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="delays_sendKeys_secs">
+        <property name="geometry">
+         <rect>
+          <x>346</x>
+          <y>0</y>
+          <width>74</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;</string>
+        </property>
+        <property name="text">
+         <string>0.0 SECS</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="delays_getWord" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>263</y>
+         <width>420</width>
+         <height>42</height>
+        </rect>
+       </property>
+       <widget class="QLabel" name="delays_getWord_title">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>1</y>
+          <width>256</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>TIME PER ITERATION OF WORD CHECK</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="delays_getWord_horizontalSlider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>26</y>
+          <width>420</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="delays_getWord_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="delays_getWord_secs">
+        <property name="geometry">
+         <rect>
+          <x>346</x>
+          <y>0</y>
+          <width>74</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;</string>
+        </property>
+        <property name="text">
+         <string>0.0 SECS</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="delays_getConfirmUrl" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>315</y>
+         <width>420</width>
+         <height>42</height>
+        </rect>
+       </property>
+       <widget class="QLabel" name="delays_getConfirmUrl_title">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>1</y>
+          <width>336</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>TIME PER ITERATION TO GET CONFIRMATION URL</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="delays_getConfirmUrl_horizontalSlider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>26</y>
+          <width>420</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="delays_getConfirmUrl_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="delays_getConfirmUrl_secs">
+        <property name="geometry">
+         <rect>
+          <x>346</x>
+          <y>0</y>
+          <width>74</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;</string>
+        </property>
+        <property name="text">
+         <string>0.0 SECS</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="delays_totalTime" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>524</y>
+         <width>420</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <widget class="QLabel" name="delays_totalTime_title">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>8</y>
+          <width>208</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>TOTAL TIME</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="delays_totalTime_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>28</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="delays_totalTime_secs">
+        <property name="geometry">
+         <rect>
+          <x>274</x>
+          <y>0</y>
+          <width>146</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 24px;
+background-color: #16e0ff;
+color: #111111;
+padding: 0 8px;</string>
+        </property>
+        <property name="text">
+         <string>0.0 SECS</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="paths">
+      <attribute name="title">
+       <string>PATHS</string>
+      </attribute>
+      <widget class="QPushButton" name="paths_save_config">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>210</width>
+         <height>35</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-right: 2px solid #0a0a0a;</string>
+       </property>
+       <property name="text">
+        <string>SAVE CONFIG</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="paths_refresh_config">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>10</y>
+         <width>210</width>
+         <height>35</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>REFRESH CONFIG</string>
+       </property>
+      </widget>
+      <widget class="QTabWidget" name="pagination">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>55</y>
+         <width>420</width>
+         <height>497</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QTabWidget::tab-bar {
+    alignment: center;
+}
+
+QTabBar::tab {
+	border: none;
+}
+
+QTabBar::tab:!selected {
+    margin-top: 0;
+}</string>
+       </property>
+       <property name="tabPosition">
+        <enum>QTabWidget::South</enum>
+       </property>
+       <property name="tabShape">
+        <enum>QTabWidget::Rounded</enum>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <property name="elideMode">
+        <enum>Qt::ElideNone</enum>
+       </property>
+       <widget class="QWidget" name="n1">
+        <attribute name="title">
+         <string>  1  </string>
+        </attribute>
+        <widget class="QWidget" name="paths_adbFolder" native="true">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>420</width>
+           <height>42</height>
+          </rect>
+         </property>
+         <widget class="QLineEdit" name="paths_adbFolder_lineEdit">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>22</y>
+            <width>420</width>
+            <height>20</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_adbFolder_title">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>1</y>
+            <width>24</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>ADB</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_adbFolder_devider">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>20</y>
+            <width>420</width>
+            <height>2</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_adbFolder_ext">
+          <property name="geometry">
+           <rect>
+            <x>362</x>
+            <y>0</y>
+            <width>58</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;
+</string>
+          </property>
+          <property name="text">
+           <string>FOLDER</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="paths_facebookApk" native="true">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>52</y>
+           <width>420</width>
+           <height>42</height>
+          </rect>
+         </property>
+         <widget class="QLineEdit" name="paths_facebookApk_lineEdit">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>22</y>
+            <width>420</width>
+            <height>20</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_facebookApk_title">
+          <property name="geometry">
+           <rect>
+            <x>-1</x>
+            <y>1</y>
+            <width>64</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>FACEBOOK</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_facebookApk_devider">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>20</y>
+            <width>420</width>
+            <height>2</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_facebookApk_ext">
+          <property name="geometry">
+           <rect>
+            <x>386</x>
+            <y>0</y>
+            <width>34</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;
+</string>
+          </property>
+          <property name="text">
+           <string>APK</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="paths_proxifierApk" native="true">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>104</y>
+           <width>420</width>
+           <height>42</height>
+          </rect>
+         </property>
+         <widget class="QLineEdit" name="paths_proxifierApk_lineEdit">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>22</y>
+            <width>420</width>
+            <height>20</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_proxifierApk_title">
+          <property name="geometry">
+           <rect>
+            <x>-1</x>
+            <y>1</y>
+            <width>72</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>PROXIFIER</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_proxifierApk_devider">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>20</y>
+            <width>420</width>
+            <height>2</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_proxifierApk_ext">
+          <property name="geometry">
+           <rect>
+            <x>386</x>
+            <y>0</y>
+            <width>34</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;
+</string>
+          </property>
+          <property name="text">
+           <string>APK</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="paths_chromeDriverExe" native="true">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>156</y>
+           <width>420</width>
+           <height>42</height>
+          </rect>
+         </property>
+         <widget class="QLineEdit" name="paths_chromeDriverExe_lineEdit">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>22</y>
+            <width>420</width>
+            <height>20</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_chromeDriverExe_title">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>1</y>
+            <width>104</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>CHROME DRIVER</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_chromeDriverExe_devider">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>20</y>
+            <width>420</width>
+            <height>2</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_chromeDriverExe_ext">
+          <property name="geometry">
+           <rect>
+            <x>386</x>
+            <y>0</y>
+            <width>34</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;
+</string>
+          </property>
+          <property name="text">
+           <string>EXE</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="paths_paddleOcrDetFolder" native="true">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>208</y>
+           <width>420</width>
+           <height>42</height>
+          </rect>
+         </property>
+         <widget class="QLineEdit" name="paths_paddleOcrDetFolder_lineEdit">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>22</y>
+            <width>420</width>
+            <height>20</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_paddleOcrDetFolder_title">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>1</y>
+            <width>112</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>PADDLE OCR DET</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_paddleOcrDetFolder_devider">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>20</y>
+            <width>420</width>
+            <height>2</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_paddleOcrDetFolder_ext">
+          <property name="geometry">
+           <rect>
+            <x>362</x>
+            <y>0</y>
+            <width>58</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;
+</string>
+          </property>
+          <property name="text">
+           <string>FOLDER</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="paths_paddleOcrRecFolder" native="true">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>260</y>
+           <width>420</width>
+           <height>42</height>
+          </rect>
+         </property>
+         <widget class="QLineEdit" name="paths_paddleOcrRecFolder_lineEdit">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>22</y>
+            <width>420</width>
+            <height>20</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_paddleOcrRecFolder_title">
+          <property name="geometry">
+           <rect>
+            <x>-1</x>
+            <y>1</y>
+            <width>112</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>PADDLE OCR REC</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_paddleOcrRecFolder_devider">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>20</y>
+            <width>420</width>
+            <height>2</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_paddleOcrRecFolder_ext">
+          <property name="geometry">
+           <rect>
+            <x>362</x>
+            <y>0</y>
+            <width>58</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;
+</string>
+          </property>
+          <property name="text">
+           <string>FOLDER</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="paths_PaddleOcrDigitalDictTxt" native="true">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>312</y>
+           <width>420</width>
+           <height>42</height>
+          </rect>
+         </property>
+         <widget class="QLineEdit" name="paths_PaddleOcrDigitalDictTxt_lineEdit">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>22</y>
+            <width>420</width>
+            <height>20</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_PaddleOcrDigitalDictTxt_title">
+          <property name="geometry">
+           <rect>
+            <x>-1</x>
+            <y>1</y>
+            <width>184</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>PADDLE OCR DIGITAL DICT</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_PaddleOcrDigitalDictTxt_devider">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>20</y>
+            <width>420</width>
+            <height>2</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_PaddleOcrDigitalDictTxt_ext">
+          <property name="geometry">
+           <rect>
+            <x>386</x>
+            <y>0</y>
+            <width>34</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;
+</string>
+          </property>
+          <property name="text">
+           <string>TXT</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="paths_emailsTxt" native="true">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>364</y>
+           <width>420</width>
+           <height>42</height>
+          </rect>
+         </property>
+         <widget class="QLineEdit" name="paths_emailsTxt_lineEdit">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>22</y>
+            <width>420</width>
+            <height>20</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_emailsTxt_title">
+          <property name="geometry">
+           <rect>
+            <x>-1</x>
+            <y>1</y>
+            <width>48</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>EMAILS</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_emailsTxt_devider">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>20</y>
+            <width>420</width>
+            <height>2</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_emailsTxt_ext">
+          <property name="geometry">
+           <rect>
+            <x>386</x>
+            <y>0</y>
+            <width>34</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;
+</string>
+          </property>
+          <property name="text">
+           <string>TXT</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="paths_allAccountsTxt" native="true">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>416</y>
+           <width>420</width>
+           <height>42</height>
+          </rect>
+         </property>
+         <widget class="QLineEdit" name="paths_allAccountsTxt_lineEdit">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>22</y>
+            <width>420</width>
+            <height>20</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_allAccountsTxt_title">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>1</y>
+            <width>96</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>ALL ACCOUNTS</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_allAccountsTxt_devider">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>20</y>
+            <width>420</width>
+            <height>2</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_allAccountsTxt_ext">
+          <property name="geometry">
+           <rect>
+            <x>386</x>
+            <y>0</y>
+            <width>34</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;
+</string>
+          </property>
+          <property name="text">
+           <string>TXT</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="n2">
+        <attribute name="title">
+         <string>  2  </string>
+        </attribute>
+        <widget class="QWidget" name="paths_validAccountsTxt" native="true">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>420</width>
+           <height>42</height>
+          </rect>
+         </property>
+         <widget class="QLineEdit" name="paths_validAccountsTxt_lineEdit">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>22</y>
+            <width>420</width>
+            <height>20</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_validAccountsTxt_title">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>1</y>
+            <width>112</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>VALID ACCOUNTS</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_validAccountsTxt_devider">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>20</y>
+            <width>420</width>
+            <height>2</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_validAccountsTxt_ext">
+          <property name="geometry">
+           <rect>
+            <x>386</x>
+            <y>0</y>
+            <width>34</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;
+</string>
+          </property>
+          <property name="text">
+           <string>TXT</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="paths_invalidAccountsTxt" native="true">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>52</y>
+           <width>420</width>
+           <height>42</height>
+          </rect>
+         </property>
+         <widget class="QLineEdit" name="paths_invalidAccountsTxt_lineEdit">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>22</y>
+            <width>420</width>
+            <height>20</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_invalidAccountsTxt_title">
+          <property name="geometry">
+           <rect>
+            <x>-1</x>
+            <y>1</y>
+            <width>128</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>INVALID ACCOUNTS</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_invalidAccountsTxt_devider">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>20</y>
+            <width>420</width>
+            <height>2</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="paths_invalidAccountsTxt_ext">
+          <property name="geometry">
+           <rect>
+            <x>386</x>
+            <y>0</y>
+            <width>34</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;
+</string>
+          </property>
+          <property name="text">
+           <string>TXT</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="attempts">
+      <attribute name="title">
+       <string>ATTEMPTS</string>
+      </attribute>
+      <widget class="QPushButton" name="attempts_save_config">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>210</width>
+         <height>35</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-right: 2px solid #0a0a0a;</string>
+       </property>
+       <property name="text">
+        <string>SAVE CONFIG</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="attempts_refresh_config">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>10</y>
+         <width>210</width>
+         <height>35</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>REFRESH CONFIG</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="attempts_sendClick" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>55</y>
+         <width>420</width>
+         <height>42</height>
+        </rect>
+       </property>
+       <widget class="QLabel" name="attempts_sendClick_title">
+        <property name="geometry">
+         <rect>
+          <x>-1</x>
+          <y>1</y>
+          <width>224</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>ITERATIONS PER CLICK ATTEMPT</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="attempts_sendClick_horizontalSlider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>26</y>
+          <width>420</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="attempts_sendClick_qty">
+        <property name="geometry">
+         <rect>
+          <x>362</x>
+          <y>0</y>
+          <width>58</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;</string>
+        </property>
+        <property name="text">
+         <string>0 QTY</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="attempts_sendClick_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="attempts_getWord" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>107</y>
+         <width>420</width>
+         <height>42</height>
+        </rect>
+       </property>
+       <widget class="QLabel" name="attempts_getWord_title">
+        <property name="geometry">
+         <rect>
+          <x>-1</x>
+          <y>1</y>
+          <width>296</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>ITERATIONS PER WORD RETRIEVAL ATTEMPT</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="attempts_getWord_horizontalSlider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>26</y>
+          <width>420</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="attempts_getWord_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="attempts_getWord_qty">
+        <property name="geometry">
+         <rect>
+          <x>362</x>
+          <y>0</y>
+          <width>58</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;</string>
+        </property>
+        <property name="text">
+         <string>0 QTY</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="attempts_getConfirmUrl" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>159</y>
+         <width>420</width>
+         <height>42</height>
+        </rect>
+       </property>
+       <widget class="QLabel" name="attempts_getConfirmUrl_title">
+        <property name="geometry">
+         <rect>
+          <x>-1</x>
+          <y>1</y>
+          <width>312</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>ITERATIONS PER CONFIRMATION URL ATTEMPT</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="attempts_getConfirmUrl_horizontalSlider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>26</y>
+          <width>420</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="attempts_getConfirmUrl_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="attempts_getConfirmUrl_qty">
+        <property name="geometry">
+         <rect>
+          <x>362</x>
+          <y>0</y>
+          <width>58</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;</string>
+        </property>
+        <property name="text">
+         <string>0 QTY</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="attempts_totalAttempts" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>524</y>
+         <width>420</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <widget class="QLabel" name="attempts_totalAttempts_title">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>8</y>
+          <width>208</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>TOTAL ATTEMPTS</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="attempts_totalAttempts_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>28</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="attempts_totalAttempts_qty">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>0</y>
+          <width>120</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 24px;
+background-color: #16e0ff;
+color: #111111;
+padding: 0 8px;</string>
+        </property>
+        <property name="text">
+         <string>0 QTY</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="params">
+      <attribute name="title">
+       <string>PARAMS</string>
+      </attribute>
+      <widget class="QWidget" name="params_sectorSize" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>55</y>
+         <width>420</width>
+         <height>42</height>
+        </rect>
+       </property>
+       <widget class="QLabel" name="params_sectorSize_title">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>1</y>
+          <width>216</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>SECTOR SIZE(LARGER-&gt;FASTER)</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="params_sectorSize_horizontalSlider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>26</y>
+          <width>420</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="params_sectorSize_dots">
+        <property name="geometry">
+         <rect>
+          <x>354</x>
+          <y>0</y>
+          <width>66</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>66</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;</string>
+        </property>
+        <property name="text">
+         <string>0 DOTS</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="params_sectorSize_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QPushButton" name="params_save_config">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>210</width>
+         <height>35</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-right: 2px solid #0a0a0a;</string>
+       </property>
+       <property name="text">
+        <string>SAVE CONFIG</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="params_refresh_config">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>10</y>
+         <width>210</width>
+         <height>35</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>REFRESH CONFIG</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="params_passwordLength" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>159</y>
+         <width>420</width>
+         <height>62</height>
+        </rect>
+       </property>
+       <widget class="QSlider" name="params_passwordLength_horizontalSlider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>46</y>
+          <width>420</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="params_passwordLength_letters">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>0</y>
+          <width>90</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>66</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;</string>
+        </property>
+        <property name="text">
+         <string>0 LETTERS</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="params_passwordLength_lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>22</y>
+          <width>420</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit:hover {
+	border: none;
+}
+
+QLineEdit:focus {
+	border:none;
+}</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="params_passwordLength_title">
+        <property name="geometry">
+         <rect>
+          <x>-1</x>
+          <y>1</y>
+          <width>120</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>PASSWORD LENGTH</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="params_passwordLength_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="params_maxAge" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>107</y>
+         <width>420</width>
+         <height>42</height>
+        </rect>
+       </property>
+       <widget class="QLabel" name="params_maxAge_title">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>1</y>
+          <width>112</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>MAX PERSON AGE</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="params_maxAge_horizontalSlider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>26</y>
+          <width>420</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="params_maxAge_years">
+        <property name="geometry">
+         <rect>
+          <x>346</x>
+          <y>0</y>
+          <width>74</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>66</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;</string>
+        </property>
+        <property name="text">
+         <string>0 YEARS</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="params_maxAge_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="params_webDriverImplictWait" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>231</y>
+         <width>420</width>
+         <height>42</height>
+        </rect>
+       </property>
+       <widget class="QLabel" name="params_webDriverImplictWait_title">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>1</y>
+          <width>176</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>WEBDRIVER IMPLICT WAIT</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="params_webDriverImplictWait_horizontalSlider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>26</y>
+          <width>420</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="params_webDriverImplictWait_secs">
+        <property name="geometry">
+         <rect>
+          <x>354</x>
+          <y>0</y>
+          <width>66</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>66</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;</string>
+        </property>
+        <property name="text">
+         <string>0 SECS</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="params_webDriverImplictWait_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="proxy">
+      <attribute name="title">
+       <string>PROXY</string>
+      </attribute>
+      <widget class="QPushButton" name="proxy_save_config">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>210</width>
+         <height>35</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-right: 2px solid #0a0a0a;</string>
+       </property>
+       <property name="text">
+        <string>SAVE CONFIG</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="proxy_refresh_config">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>10</y>
+         <width>210</width>
+         <height>35</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>REFRESH CONFIG</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="proxy_type" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>55</y>
+         <width>420</width>
+         <height>42</height>
+        </rect>
+       </property>
+       <widget class="QLineEdit" name="proxy_type_lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>22</y>
+          <width>420</width>
+          <height>20</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="proxy_type_title">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>1</y>
+          <width>32</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>TYPE</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="proxy_type_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="proxy_type_eg">
+        <property name="geometry">
+         <rect>
+          <x>362</x>
+          <y>0</y>
+          <width>58</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;
+</string>
+        </property>
+        <property name="text">
+         <string>SOCKS5</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="proxy_username" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>107</y>
+         <width>420</width>
+         <height>42</height>
+        </rect>
+       </property>
+       <widget class="QLineEdit" name="proxy_username_lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>22</y>
+          <width>420</width>
+          <height>20</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="proxy_username_title">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>1</y>
+          <width>64</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>USERNAME</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="proxy_username_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="proxy_password" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>159</y>
+         <width>420</width>
+         <height>42</height>
+        </rect>
+       </property>
+       <widget class="QLineEdit" name="proxy_password_lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>22</y>
+          <width>420</width>
+          <height>20</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="proxy_password_title">
+        <property name="geometry">
+         <rect>
+          <x>-1</x>
+          <y>1</y>
+          <width>64</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>PASSWORD</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="proxy_password_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="proxy_hostname" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>211</y>
+         <width>420</width>
+         <height>42</height>
+        </rect>
+       </property>
+       <widget class="QLineEdit" name="proxy_hostname_lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>22</y>
+          <width>420</width>
+          <height>20</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="proxy_hostname_title">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>1</y>
+          <width>64</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>HOSTNAME</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="proxy_hostname_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="proxy_hostname_eg">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>0</y>
+          <width>130</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;
+</string>
+        </property>
+        <property name="text">
+         <string>255.255.255.255</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="proxy_port" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>263</y>
+         <width>420</width>
+         <height>42</height>
+        </rect>
+       </property>
+       <widget class="QLineEdit" name="proxy_port_lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>22</y>
+          <width>420</width>
+          <height>20</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="proxy_port_title">
+        <property name="geometry">
+         <rect>
+          <x>-1</x>
+          <y>1</y>
+          <width>32</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>PORT</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="proxy_port_devider">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>420</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="proxy_port_eg">
+        <property name="geometry">
+         <rect>
+          <x>378</x>
+          <y>0</y>
+          <width>42</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #16e0ff;
+color: #111111;
+padding: 1px;
+</string>
+        </property>
+        <property name="text">
+         <string>8080</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="config_reset_button">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>550</y>
+       <width>410</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>RESET CONFIG TO DEFAULT</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="numpad" native="true">
+     <property name="geometry">
+      <rect>
+       <x>421</x>
+       <y>27</y>
+       <width>428</width>
+       <height>243</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>428</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>428</width>
+       <height>580</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#numpad QLineEdit  {
+	border: 1px solid #16e0ff;
+}</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLineEdit" name="numpad_num_1">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>51</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>53</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="numpad_num_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>51</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>53</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="numpad_num_3">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>51</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>53</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLineEdit" name="numpad_num_4">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>51</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>53</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="numpad_num_5">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>51</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>53</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="numpad_num_6">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>51</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>53</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLineEdit" name="numpad_num_7">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>51</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>53</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="numpad_num_8">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>51</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>53</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+          </property>
+          <property name="clearButtonEnabled">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="numpad_num_9">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>51</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>53</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QLineEdit" name="numpad_num_0">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>52</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>132</width>
+            <height>53</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QComboBox" name="numpad_device_comboBox">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>271</y>
+       <width>410</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="currentText">
+      <string/>
+     </property>
+     <property name="placeholderText">
+      <string>DEVICE</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="numpad_cords_definition_checkBox">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>297</y>
+       <width>156</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::DefaultContextMenu</enum>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>COORDS DEFINITION</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="numpad_num_title_1">
+     <property name="geometry">
+      <rect>
+       <x>431</x>
+       <y>37</y>
+       <width>131</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #0a0a0a;</string>
+     </property>
+     <property name="text">
+      <string>1</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="numpad_num_title_2">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>37</y>
+       <width>130</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #0a0a0a;</string>
+     </property>
+     <property name="text">
+      <string>2</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="numpad_num_title_3">
+     <property name="geometry">
+      <rect>
+       <x>708</x>
+       <y>37</y>
+       <width>131</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #0a0a0a;</string>
+     </property>
+     <property name="text">
+      <string>3</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="numpad_num_title_4">
+     <property name="geometry">
+      <rect>
+       <x>431</x>
+       <y>95</y>
+       <width>131</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #0a0a0a;</string>
+     </property>
+     <property name="text">
+      <string>4</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="numpad_num_title_5">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>95</y>
+       <width>130</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #0a0a0a;</string>
+     </property>
+     <property name="text">
+      <string>5</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="numpad_num_title_6">
+     <property name="geometry">
+      <rect>
+       <x>708</x>
+       <y>95</y>
+       <width>131</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #0a0a0a;</string>
+     </property>
+     <property name="text">
+      <string>6</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="numpad_num_title_7">
+     <property name="geometry">
+      <rect>
+       <x>431</x>
+       <y>153</y>
+       <width>131</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #0a0a0a;</string>
+     </property>
+     <property name="text">
+      <string>7</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="numpad_num_title_8">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>153</y>
+       <width>130</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #0a0a0a;</string>
+     </property>
+     <property name="text">
+      <string>8</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="numpad_num_title_9">
+     <property name="geometry">
+      <rect>
+       <x>708</x>
+       <y>153</y>
+       <width>131</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #0a0a0a;</string>
+     </property>
+     <property name="text">
+      <string>9</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="numpad_num_title_0">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>210</y>
+       <width>130</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #0a0a0a;</string>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="tab_nav_line2">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>2</y>
+       <width>410</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #dcdcdc;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="tab_line2">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>24</y>
+       <width>410</width>
+       <height>2</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #16e0ff;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="numpad_title">
+     <property name="geometry">
+      <rect>
+       <x>434</x>
+       <y>4</y>
+       <width>48</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;
+color: #111111;</string>
+     </property>
+     <property name="text">
+      <string>NUMPAD</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="numpad_title_background">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>0</y>
+       <width>56</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:  #16e0ff;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <zorder>config</zorder>
+    <zorder>config_reset_button</zorder>
+    <zorder>numpad</zorder>
+    <zorder>numpad_device_comboBox</zorder>
+    <zorder>numpad_cords_definition_checkBox</zorder>
+    <zorder>numpad_num_title_1</zorder>
+    <zorder>numpad_num_title_2</zorder>
+    <zorder>numpad_num_title_3</zorder>
+    <zorder>numpad_num_title_4</zorder>
+    <zorder>numpad_num_title_5</zorder>
+    <zorder>numpad_num_title_6</zorder>
+    <zorder>numpad_num_title_7</zorder>
+    <zorder>numpad_num_title_8</zorder>
+    <zorder>numpad_num_title_9</zorder>
+    <zorder>numpad_num_title_0</zorder>
+    <zorder>tab_nav_line2</zorder>
+    <zorder>tab_line2</zorder>
+    <zorder>numpad_title_background</zorder>
+    <zorder>numpad_title</zorder>
+   </widget>
+   <widget class="QLabel" name="tab_nav_line1">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>12</y>
+      <width>140</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #dcdcdc;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tab_line1">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>34</y>
+      <width>140</width>
+      <height>2</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #16e0ff;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="0" margin="0"/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>2</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>2</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>false</bool>
+  </property>
+ </designerdata>
+</ui>

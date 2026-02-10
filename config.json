@@ -1,0 +1,79 @@
+{
+    "delays" : {
+        "data" : {
+            "installFacebook"         : 0,
+            "openFacebook"            : 10,
+            "sendClick"               : 0,
+            "sendKeys"                : 0,
+            "getWord"                 : 0.5,
+            "getConfirmURL"           : 1.5
+        },
+
+        "description": "Задержки основных функций"
+    },
+
+    "paths" : {
+        "data" : {
+            "adbFolder"               : "../assets/adb/",
+            "facebookAPK"             : "../assets/com.facebook.lite.apk",
+            "proxifierAPK"            : "../assets/proxifier.apk",
+            "chromeDriverEXE"         : "../assets/chromedriver.exe",
+            "PaddleOcrDetFolder"      : "../assets/ppocr/utils/ch_ppocr_mobile_v2.0_det_infer/",
+            "PaddleOcrRecFolder"      : "../assets/ppocr/utils/en_ppocr_mobile_v2.0_rec_infer/",
+            "PaddleOcrDigitalDictTXT" : "../assets/ppocr/utils/digital_dict.txt",
+            "emailsTXT"               : "../data/emails.txt",
+            "allAccountsTXT"          : "../data/accounts.txt",
+            "validAccountsTXT"        : "../data/valid_accounts.txt",
+            "invalidAccountsTXT"      : "../data/invalid_accounts.txt"
+        },
+        
+        "description": "Пути для некоторых модулей"
+    },
+
+    "attempts" : {
+        "data" : {
+            "sendClick"               : 10,
+            "getWord"                 : 10,
+            "getConfirmURL"           : 40
+        },
+        
+        "description": "Количество попыток повтора определенных функций"
+    },
+
+    
+    "params" : {
+        "data" : {
+            "sectorSize"              : 20,
+			"passwordLength"          : 16,
+			"maxAge"                  : 40,
+            "webDriverImplictWait"    : 5
+        },
+
+        "description": "Некоторые параметры для функций"
+    },
+
+    "numpad" : {
+        "cordNums" : [
+            [116.0, 887.5], [359.5, 887.5], [598.5, 888.0],
+            [119.5, 1018.0], [360.5, 1018.5], [599.5, 1018.5],
+            [119.5, 1148.0], [359.5, 1148.0], [598.5, 1147.5],
+			[359.5, 1277.5]
+        ],
+
+        "description" : "Разметка пикселей клавиатуры на этапе выбора даты рождения"
+    },
+
+    "proxy" : {
+        "data" : {     
+            "type"                    : "...",
+            "username"                : "...",
+            "password"                : "...",
+            "hostname"                : "...",
+            "port"                    : "..."
+        },
+
+        "description" : "Данные для подключения к прокси серверу"
+    },
+
+    "description" : "Конфигурационный файл"
+}

@@ -1,0 +1,16 @@
+<RCC>
+  <qresource prefix="images">
+    <file>resources.qrc</file>
+    <file>icons/copy_16.png</file>
+    <file>icons/cut_16.png</file>
+    <file>icons/save_16.png</file>
+    <file>icons/account_24.png</file>
+    <file>icons/block_64.png</file>
+    <file>icons/delete_32.png</file>
+    <file>icons/file_64.png</file>
+    <file>icons/plus_16.png</file>
+    <file>icons/save_32.png</file>
+    <file>icons/setting_64.png</file>
+    <file>icons/star_64.png</file>
+  </qresource>
+</RCC>

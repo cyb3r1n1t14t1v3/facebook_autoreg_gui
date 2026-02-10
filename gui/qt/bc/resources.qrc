@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="images">
+    <file>icons/block.png</file>
+    <file>icons/account.png</file>
+    <file>icons/delete.png</file>
+    <file>icons/save.png</file>
+    <file>icons/file.png</file>
+    <file>icons/setting.png</file>
+    <file>icons/star.png</file>
+  </qresource>
+</RCC>
